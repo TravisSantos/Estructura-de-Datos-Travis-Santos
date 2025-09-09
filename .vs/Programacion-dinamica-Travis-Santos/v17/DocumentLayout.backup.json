@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2032B7F9-61D7-4D5A-9AFA-FD41B7557033}|Practica 1 Python\\Practica 1 Python.pyproj|C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\Practica 1 Python\\Practica_1_Python.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{2032B7F9-61D7-4D5A-9AFA-FD41B7557033}|Practica 1 Python\\Practica 1 Python.pyproj|solutionrelative:Practica 1 Python\\Practica_1_Python.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Practica_1_Python.py",
+              "DocumentMoniker": "C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\Practica 1 Python\\Practica_1_Python.py",
+              "RelativeDocumentMoniker": "Practica 1 Python\\Practica_1_Python.py",
+              "ToolTip": "C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\Practica 1 Python\\Practica_1_Python.py",
+              "RelativeToolTip": "Practica 1 Python\\Practica_1_Python.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-09-09T19:31:17.979Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
