@@ -1,0 +1,15 @@
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\bin\Debug\net8.0\Practica 1 C#.exe
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\bin\Debug\net8.0\Practica 1 C#.deps.json
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\bin\Debug\net8.0\Practica 1 C#.runtimeconfig.json
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\bin\Debug\net8.0\Practica 1 C#.dll
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\bin\Debug\net8.0\Practica 1 C#.pdb
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\obj\Debug\net8.0\Practica 1 C#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\obj\Debug\net8.0\Practica 1 C#.AssemblyInfoInputs.cache
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\obj\Debug\net8.0\Practica 1 C#.AssemblyInfo.cs
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\obj\Debug\net8.0\Practica 1 C#.csproj.CoreCompileInputs.cache
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\obj\Debug\net8.0\Practica 1 C#.sourcelink.json
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\obj\Debug\net8.0\Practica 1 C#.dll
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\obj\Debug\net8.0\refint\Practica 1 C#.dll
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\obj\Debug\net8.0\Practica 1 C#.pdb
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\obj\Debug\net8.0\Practica 1 C#.genruntimeconfig.cache
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica 1 C#\obj\Debug\net8.0\ref\Practica 1 C#.dll
