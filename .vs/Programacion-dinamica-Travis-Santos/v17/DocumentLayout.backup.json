@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\Practica 1 C#\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Practica 1 C#\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AFEDF5E3-4EE2-4F92-B9B9-F0A861B5E6E3}|Practica 1 C\u002B\u002B\\Practica 1 C\u002B\u002B.vcxproj|C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\Practica 1 C\u002B\u002B\\Practica 1 C\u002B\u002B.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AFEDF5E3-4EE2-4F92-B9B9-F0A861B5E6E3}|Practica 1 C\u002B\u002B\\Practica 1 C\u002B\u002B.vcxproj|solutionrelative:Practica 1 C\u002B\u002B\\Practica 1 C\u002B\u002B.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\Practica 1 C#\\Program.cs",
-              "RelativeDocumentMoniker": "Practica 1 C#\\Program.cs",
-              "ToolTip": "C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\Practica 1 C#\\Program.cs",
-              "RelativeToolTip": "Practica 1 C#\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T20:19:37.623Z",
+              "Title": "Practica 1 C\u002B\u002B.cpp",
+              "DocumentMoniker": "C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\Practica 1 C\u002B\u002B\\Practica 1 C\u002B\u002B.cpp",
+              "RelativeDocumentMoniker": "Practica 1 C\u002B\u002B\\Practica 1 C\u002B\u002B.cpp",
+              "ToolTip": "C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\Practica 1 C\u002B\u002B\\Practica 1 C\u002B\u002B.cpp",
+              "RelativeToolTip": "Practica 1 C\u002B\u002B\\Practica 1 C\u002B\u002B.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-09T21:09:45.588Z",
               "EditorCaption": ""
             }
           ]
