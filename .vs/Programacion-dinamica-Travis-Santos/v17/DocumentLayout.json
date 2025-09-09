@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{409163A7-D4F4-4D7E-92E4-4247427E95BC}|PythonApplication1\\PythonApplication1.pyproj|C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\PythonApplication1\\PythonApplication1.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{409163A7-D4F4-4D7E-92E4-4247427E95BC}|PythonApplication1\\PythonApplication1.pyproj|solutionrelative:PythonApplication1\\PythonApplication1.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\PythonApplication1\\PythonApplication1.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PythonApplication1\\PythonApplication1.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,7 +24,7 @@
               "RelativeDocumentMoniker": "PythonApplication1\\PythonApplication1.py",
               "ToolTip": "C:\\Users\\travi\\Documents\\Prgramacion dinamica Herman\\Programacion-dinamica-Travis-Santos\\PythonApplication1\\PythonApplication1.py",
               "RelativeToolTip": "PythonApplication1\\PythonApplication1.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
               "WhenOpened": "2025-09-09T19:55:48.795Z",
               "EditorCaption": ""
