@@ -1,0 +1,15 @@
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\bin\Debug\net8.0\Practica juego 3 en linea c#.exe
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\bin\Debug\net8.0\Practica juego 3 en linea c#.deps.json
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\bin\Debug\net8.0\Practica juego 3 en linea c#.runtimeconfig.json
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\bin\Debug\net8.0\Practica juego 3 en linea c#.dll
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\bin\Debug\net8.0\Practica juego 3 en linea c#.pdb
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\obj\Debug\net8.0\Practica juego 3 en linea c#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\obj\Debug\net8.0\Practica juego 3 en linea c#.AssemblyInfoInputs.cache
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\obj\Debug\net8.0\Practica juego 3 en linea c#.AssemblyInfo.cs
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\obj\Debug\net8.0\Practica juego 3 en linea c#.csproj.CoreCompileInputs.cache
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\obj\Debug\net8.0\Practica juego 3 en linea c#.sourcelink.json
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\obj\Debug\net8.0\Practica juego 3 en linea c#.dll
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\obj\Debug\net8.0\refint\Practica juego 3 en linea c#.dll
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\obj\Debug\net8.0\Practica juego 3 en linea c#.pdb
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\obj\Debug\net8.0\Practica juego 3 en linea c#.genruntimeconfig.cache
+C:\Users\travi\Documents\Prgramacion dinamica Herman\Programacion-dinamica-Travis-Santos\Practica juego 3 en linea c#\obj\Debug\net8.0\ref\Practica juego 3 en linea c#.dll
