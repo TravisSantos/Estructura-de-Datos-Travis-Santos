@@ -1,192 +1,291 @@
 import java.util.*;
 import java.io.*;
 
-public class Main {
-    static int[][] board = new int[9][9];
-    static boolean[][] fixed = new boolean[9][9];
-    static int lives = 3;
-    static Scanner sc = new Scanner(System.in);
-    static String saveFile = "sudoku_save.txt";
+class Main {
+    private static final int SIZE = 9;
+    private static final int SUBGRID = 3;
+    private static int[][] board = new int[SIZE][SIZE];
+    private static boolean[][] fixed = new boolean[SIZE][SIZE];
+    private static int lives = 3;
+
+    // Variables para cronómetro
+    private static long startTime = 0;
+    private static long elapsedTime = 0;
 
     public static void main(String[] args) {
-        System.out.println("=== Sudoku Game ===");
-        System.out.println("1. Nuevo juego");
-        System.out.println("2. Cargar juego guardado");
-        int option = sc.nextInt();
-
-        if (option == 2 && loadGame()) {
-            System.out.println("Progreso cargado exitosamente!");
-        } else {
-            System.out.println("Selecciona dificultad: 1 (Facil), 2 (Medio), 3 (Dificil)");
-            int difficulty = sc.nextInt();
-            generateBoard(difficulty);
-        }
-
-        playGame();
-    }
-
-    // Generar tablero inicial según la dificultad
-    public static void generateBoard(int difficulty) {
-        // Tablero base solucionado
-        int[][] solved = {
-            {5,3,4,6,7,8,9,1,2},
-            {6,7,2,1,9,5,3,4,8},
-            {1,9,8,3,4,2,5,6,7},
-            {8,5,9,7,6,1,4,2,3},
-            {4,2,6,8,5,3,7,9,1},
-            {7,1,3,9,2,4,8,5,6},
-            {9,6,1,5,3,7,2,8,4},
-            {2,8,7,4,1,9,6,3,5},
-            {3,4,5,2,8,6,1,7,9}
-        };
-
-        // Copiamos la solucion al tablero
-        for (int i = 0; i < 9; i++)
-            for (int j = 0; j < 9; j++)
-                board[i][j] = solved[i][j];
-
-        // Determinar cuántos espacios vaciar según la dificultad
-        int blanks = switch (difficulty) {
-            case 1 -> 30;  // fácil
-            case 2 -> 45;  // medio
-            default -> 60; // difícil
-        };
-
+        Scanner sc = new Scanner(System.in);
         Random rand = new Random();
-        while (blanks > 0) {
-            int i = rand.nextInt(9);
-            int j = rand.nextInt(9);
-            if (board[i][j] != 0) {
-                board[i][j] = 0;
-                blanks--;
+
+        System.out.println("=== SUDOKU ===");
+        System.out.println("1. Nuevo juego");
+        System.out.println("2. Cargar progreso");
+        System.out.print("Selecciona opcion: ");
+        int opcion = sc.nextInt();
+
+        if (opcion == 2 && new File("sudoku_save.txt").exists()) {
+            cargarProgreso();
+        } else {
+            System.out.println("\nSelecciona dificultad:");
+            System.out.println("1. Muy facil");
+            System.out.println("2. Facil");
+            System.out.println("3. Media");
+            System.out.println("4. Dificil");
+            System.out.println("5. Muy dificil");
+            System.out.print("Opcion: ");
+            int dificultad = sc.nextInt();
+
+            int minPistas = 0, maxPistas = 0;
+            switch (dificultad) {
+                case 1: minPistas = 36; maxPistas = 49; break;
+                case 2: minPistas = 32; maxPistas = 35; break;
+                case 3: minPistas = 28; maxPistas = 31; break;
+                case 4: minPistas = 24; maxPistas = 27; break;
+                case 5: minPistas = 17; maxPistas = 23; break;
+                default: minPistas = 28; maxPistas = 31; break;
             }
+
+            generateFullBoard();
+            removeCells(rand.nextInt(maxPistas - minPistas + 1) + minPistas);
+            System.out.println("\nTablero generado!\n");
         }
 
-        // Marcamos las celdas fijas
-        for (int i = 0; i < 9; i++)
-            for (int j = 0; j < 9; j++)
-                fixed[i][j] = (board[i][j] != 0);
+        startTime = System.currentTimeMillis(); // ⏱️ Comienza a contar tiempo
+        playGame(sc);
+        sc.close();
     }
 
-    // Mostrar el tablero
-    public static void printBoard() {
-        System.out.println("\nVidas restantes: " + lives);
-        System.out.println("  0 1 2 3 4 5 6 7 8");
-        for (int i = 0; i < 9; i++) {
-            System.out.print(i + " ");
-            for (int j = 0; j < 9; j++) {
-                if (board[i][j] == 0)
-                    System.out.print(". ");
-                else
-                    System.out.print(board[i][j] + " ");
+    // ---------- GENERADOR DE TABLERO ----------
+    private static boolean generateFullBoard() {
+        return fillBoard(0, 0);
+    }
+
+    private static boolean fillBoard(int row, int col) {
+        if (row == SIZE) return true;
+        int nextRow = (col == SIZE - 1) ? row + 1 : row;
+        int nextCol = (col + 1) % SIZE;
+
+        List<Integer> nums = new ArrayList<>();
+        for (int i = 1; i <= SIZE; i++) nums.add(i);
+        Collections.shuffle(nums);
+
+        for (int num : nums) {
+            if (isValidPlacement(row, col, num)) {
+                board[row][col] = num;
+                if (fillBoard(nextRow, nextCol)) return true;
+                board[row][col] = 0;
             }
-            System.out.println();
+        }
+        return false;
+    }
+
+    private static void removeCells(int clues) {
+        Random rand = new Random();
+        int cellsToRemove = SIZE * SIZE - clues;
+
+        // Inicialmente marcar todo como fijo; luego liberamos los removidos.
+        for (int i = 0; i < SIZE; i++) {
+            Arrays.fill(fixed[i], true);
+        }
+
+        while (cellsToRemove > 0) {
+            int row = rand.nextInt(SIZE);
+            int col = rand.nextInt(SIZE);
+            if (board[row][col] != 0) {
+                board[row][col] = 0;
+                fixed[row][col] = false;
+                cellsToRemove--;
+            }
         }
     }
 
-    // Verificar si se puede colocar un número
-    public static boolean isValid(int row, int col, int num) {
-        for (int x = 0; x < 9; x++) {
-            if (board[row][x] == num || board[x][col] == num)
-                return false;
+    private static boolean isValidPlacement(int row, int col, int num) {
+        for (int i = 0; i < SIZE; i++) {
+            if (board[row][i] == num || board[i][col] == num) return false;
         }
-
-        int startRow = row - row % 3;
-        int startCol = col - col % 3;
-        for (int i = startRow; i < startRow + 3; i++)
-            for (int j = startCol; j < startCol + 3; j++)
-                if (board[i][j] == num)
-                    return false;
-
+        int startRow = row - row % SUBGRID;
+        int startCol = col - col % SUBGRID;
+        for (int i = 0; i < SUBGRID; i++) {
+            for (int j = 0; j < SUBGRID; j++) {
+                if (board[startRow + i][startCol + j] == num) return false;
+            }
+        }
         return true;
     }
 
-    // Guardar progreso en archivo
-    public static void saveGame() {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(saveFile))) {
-            writer.println(lives);
-            for (int i = 0; i < 9; i++) {
-                for (int j = 0; j < 9; j++) {
-                    writer.print(board[i][j] + " ");
-                }
-                writer.println();
-            }
-            writer.close();
-            System.out.println("Juego guardado exitosamente!");
-        } catch (IOException e) {
-            System.out.println("Error al guardar el juego: " + e.getMessage());
-        }
-    }
-
-    // Cargar progreso desde archivo
-    public static boolean loadGame() {
-        try (Scanner file = new Scanner(new File(saveFile))) {
-            lives = file.nextInt();
-            for (int i = 0; i < 9; i++)
-                for (int j = 0; j < 9; j++) {
-                    board[i][j] = file.nextInt();
-                    fixed[i][j] = (board[i][j] != 0);
-                }
-            return true;
-        } catch (Exception e) {
-            System.out.println("No hay partida guardada.");
-            return false;
-        }
-    }
-
-    // Lógica principal del juego
-    public static void playGame() {
+    // ---------- JUEGO ----------
+    private static void playGame(Scanner sc) {
         while (true) {
             printBoard();
+            showElapsedTime(); // mostrar tiempo actual
 
-            if (isComplete()) {
-                System.out.println("¡Felicidades! Has completado el Sudoku.");
-                return;
+            if (isSolved()) {
+                elapsedTime += System.currentTimeMillis() - startTime;
+                System.out.println("\n¡Felicidades! Has completado el Sudoku!");
+                showFinalTime();
+                new File("sudoku_save.txt").delete(); // eliminar guardado
+                break;
             }
-
-            System.out.println("\nElige una acción:");
-            System.out.println("1. Ingresar número");
-            System.out.println("2. Guardar y salir");
-            int choice = sc.nextInt();
-
-            if (choice == 2) {
-                saveGame();
+            if (lives <= 0) {
+                elapsedTime += System.currentTimeMillis() - startTime;
+                System.out.println("\nPerdiste todas tus vidas. Fin del juego.");
+                showFinalTime();
+                new File("sudoku_save.txt").delete(); // eliminar guardado
                 break;
             }
 
-            System.out.print("Fila (0-8): ");
-            int row = sc.nextInt();
-            System.out.print("Columna (0-8): ");
-            int col = sc.nextInt();
+            System.out.println("\nOpciones:");
+            System.out.println("1. Ingresar numero");
+            System.out.println("2. Guardar progreso");
+            System.out.println("3. Salir sin guardar");
+            System.out.print("Opcion: ");
+            int opcion = safeNextInt(sc);
 
-            if (fixed[row][col]) {
-                System.out.println("No puedes modificar esta celda.");
+            if (opcion == 2) {
+                elapsedTime += System.currentTimeMillis() - startTime;
+                guardarProgreso();
+                System.out.println("Progreso guardado correctamente.");
+                startTime = System.currentTimeMillis();
+                continue;
+            } else if (opcion == 3) {
+                System.out.println("Saliendo sin guardar...");
+                break;
+            }
+
+            System.out.print("Fila (1-9): ");
+            int row = safeNextInt(sc) - 1;
+            System.out.print("Columna (1-9): ");
+            int col = safeNextInt(sc) - 1;
+
+            if (row < 0 || row >= SIZE || col < 0 || col >= SIZE) {
+                System.out.println("Posicion invalida.");
                 continue;
             }
 
-            System.out.print("Número (1-9): ");
-            int num = sc.nextInt();
+            if (fixed[row][col]) {
+                System.out.println("Esa celda no se puede modificar.");
+                continue;
+            }
 
-            if (isValid(row, col, num)) {
+            System.out.print("Numero (1-9): ");
+            int num = safeNextInt(sc);
+
+            if (num < 1 || num > 9) {
+                System.out.println("Numero invalido.");
+                continue;
+            }
+
+            if (isValidPlacementWithCurrentBoard(row, col, num)) {
                 board[row][col] = num;
-                System.out.println("Número colocado correctamente!");
+                System.out.println("Numero colocado correctamente!");
             } else {
+                System.out.println("Numero incorrecto. Pierdes una vida.");
                 lives--;
-                System.out.println("Número incorrecto! Te quedan " + lives + " vidas.");
-                if (lives == 0) {
-                    System.out.println("Has perdido el juego. Fin de la partida.");
-                    break;
-                }
+                System.out.println("Vidas restantes: " + lives);
             }
         }
     }
 
-    // Verificar si el sudoku está completo
-    public static boolean isComplete() {
-        for (int i = 0; i < 9; i++)
-            for (int j = 0; j < 9; j++)
+    // valida teniendo en cuenta la posicion vacia (no comprueba board[row][col])
+    private static boolean isValidPlacementWithCurrentBoard(int row, int col, int num) {
+        // comprobar fila y columna (ignorando la celda actual que es 0)
+        for (int i = 0; i < SIZE; i++) {
+            if (board[row][i] == num) return false;
+            if (board[i][col] == num) return false;
+        }
+        int startRow = row - row % SUBGRID;
+        int startCol = col - col % SUBGRID;
+        for (int i = 0; i < SUBGRID; i++)
+            for (int j = 0; j < SUBGRID; j++)
+                if (board[startRow + i][startCol + j] == num)
+                    return false;
+        return true;
+    }
+
+    private static void printBoard() {
+        System.out.println("\nVidas restantes: " + lives);
+        System.out.println("-------------------------");
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                if (j % 3 == 0) System.out.print("| ");
+                System.out.print((board[i][j] == 0 ? "." : board[i][j]) + " ");
+            }
+            System.out.println("|");
+            if ((i + 1) % 3 == 0) System.out.println("-------------------------");
+        }
+    }
+
+    private static boolean isSolved() {
+        for (int i = 0; i < SIZE; i++)
+            for (int j = 0; j < SIZE; j++)
                 if (board[i][j] == 0)
                     return false;
         return true;
+    }
+
+    // ---------- TIEMPO ----------
+    private static void showElapsedTime() {
+        long currentElapsed = elapsedTime + (System.currentTimeMillis() - startTime);
+        long seconds = currentElapsed / 1000;
+        long minutes = seconds / 60;
+        seconds %= 60;
+        System.out.printf("⏱ Tiempo: %02d:%02d\n", minutes, seconds);
+    }
+
+    private static void showFinalTime() {
+        long seconds = elapsedTime / 1000;
+        long minutes = seconds / 60;
+        seconds %= 60;
+        System.out.printf("⏱ Tiempo total: %02d:%02d\n", minutes, seconds);
+    }
+
+    // ---------- GUARDAR Y CARGAR ----------
+    private static void guardarProgreso() {
+        try (PrintWriter pw = new PrintWriter(new FileWriter("sudoku_save.txt"))) {
+            pw.println(lives);
+            pw.println(elapsedTime); // guardar tiempo acumulado en ms
+            for (int i = 0; i < SIZE; i++) {
+                for (int j = 0; j < SIZE; j++) {
+                    pw.print(board[i][j] + " ");
+                }
+                pw.println();
+            }
+            for (int i = 0; i < SIZE; i++) {
+                for (int j = 0; j < SIZE; j++) {
+                    pw.print((fixed[i][j] ? 1 : 0) + " ");
+                }
+                pw.println();
+            }
+        } catch (IOException e) {
+            System.out.println("Error al guardar el progreso: " + e.getMessage());
+        }
+    }
+
+    private static void cargarProgreso() {
+        try (Scanner file = new Scanner(new File("sudoku_save.txt"))) {
+            lives = file.nextInt();
+            elapsedTime = file.nextLong();
+            for (int i = 0; i < SIZE; i++) {
+                for (int j = 0; j < SIZE; j++) {
+                    board[i][j] = file.nextInt();
+                }
+            }
+            for (int i = 0; i < SIZE; i++) {
+                for (int j = 0; j < SIZE; j++) {
+                    fixed[i][j] = (file.nextInt() == 1);
+                }
+            }
+            System.out.println("Progreso cargado correctamente.");
+        } catch (IOException e) {
+            System.out.println("No se pudo cargar el progreso: " + e.getMessage());
+        }
+    }
+
+    // Lee int de forma segura (evita excepciones si el usuario mete otra cosa)
+    private static int safeNextInt(Scanner sc) {
+        while (!sc.hasNextInt()) {
+            sc.next(); // descartar token inválido
+            System.out.print("Entrada invalida. Intenta de nuevo: ");
+        }
+        return sc.nextInt();
     }
 }
